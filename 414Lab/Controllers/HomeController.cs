@@ -1,4 +1,5 @@
 using _414Lab.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -27,6 +28,11 @@ namespace _414Lab.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        [Authorize]
+        public IActionResult Secrets()
+        {
+            return View();
         }
     }
 }
